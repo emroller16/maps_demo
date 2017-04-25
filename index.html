@@ -14,13 +14,13 @@
     <div id="map"></div>
       <script>
       function initMap() {
-        var uluru = {lat: -25.363, lng: 131.044};
+        var portland = {lat: -43.661, lng: 70.255};
         var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 4,
-          center: uluru
+          zoom: 10,
+          center: portland
         });
         var marker = new google.maps.Marker({
-          position: uluru,
+          position: portland,
           map: map
         });
       }
