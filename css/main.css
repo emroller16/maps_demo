@@ -4,7 +4,7 @@
         background-color: grey;
       }
 
-#search-bar {
+#search-header {
     position: absolute;
     left: 0px;
     top: 0px;
@@ -12,4 +12,9 @@
     width: 100%;
 }
 
+#search-bar {
+    padding: 20px;
+    display: block;
+    width: 100%;
+}
 
