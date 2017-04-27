@@ -21,13 +21,13 @@ body {
     top: 0px;
     z-index: 10;
     width: 100%;
-    color: rgba(38, 98, 148, .8)
+    background-color: rgba(38, 98, 148, .8)
 }
 
 #search-header h2 {
     width: 100%;
     padding-left: 3%;
-    background-color:#ffffff;
+    color:#ffffff;
 }
 
 @media only screen and (min-width: 480px) {
