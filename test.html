@@ -79,14 +79,16 @@
       <span id="place-address"></span>
     </div>
 
+
     <script>
     function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
-			center: {lat: 43.6615, lng: -70.2553},
+			center: {lat: -33.8688, lng: 151.2195},
 			zoom: 13
         });
         var card = document.getElementById('search-card');
         var input = document.getElementById('search-input');
+        var types = document.getElementById('type-selector');
         var strictBounds = document.getElementById('strict-bounds-selector');
         map.controls[google.maps.ControlPosition.TOP_RIGHT].push(card);
         var autocomplete = new google.maps.places.Autocomplete(input);
@@ -101,16 +103,15 @@
 			map: map,
 			anchorPoint: new google.maps.Point(0, -29)
         });
-	//Hide markers that aren't being used
         autocomplete.addListener('place_changed', function() {
 			infowindow.close();
 			marker.setVisible(false);
 			var place = autocomplete.getPlace();
-			//if (!place.geometry) {
+			if (!place.geometry) {
 				// User entered the name of a Place that was not suggested and
 				// pressed the Enter key, or the Place Details request failed.
-          //  window.alert("No details available for input: '" + place.name + "'");
-          //  return;
+            window.alert("No details available for input: '" + place.name + "'");
+            return;
          }
          // If the place has a geometry, then present it on a map.
          if (place.geometry.viewport) {
@@ -134,7 +135,16 @@
         infowindowContent.children['place-address'].textContent = address;
         infowindow.open(map, marker);
     });
-
+    function setupClickListener(id, types) {
+        var radioButton = document.getElementById(id);
+        radioButton.addEventListener('click', function() {
+        autocomplete.setTypes(types);
+        });
+    }
+    setupClickListener('changetype-all', []);
+    setupClickListener('changetype-address', ['address']);
+    setupClickListener('changetype-establishment', ['establishment']);
+    setupClickListener('changetype-geocode', ['geocode']);
     document.getElementById('use-strict-bounds')
         .addEventListener('click', function() {
             console.log('Checkbox clicked! New state=' + this.checked);
