@@ -27,7 +27,7 @@ body {
 #search-header h2 {
     width: 100%;
     padding-left: 3%;
-    color:#ffffff;
+    background-color:#ffffff;
 }
 
 @media only screen and (min-width: 480px) {
@@ -50,6 +50,7 @@ body {
 @media only screen and (min-width: 480px) {
         #searchbox {        
             max-width: 20%;
+            float:left
         }
 }
 
@@ -57,6 +58,7 @@ body {
         border:none!important;
         font-family:Lato, sans-serif;
         font-size:1.2em;
+        padding:1%;
 }
 
   #description {
