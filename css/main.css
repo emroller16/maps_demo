@@ -14,7 +14,7 @@ html, body {
     top: 0px;
     z-index: 10;
     width: 100%;
-    background-color: rgba(38, 98, 148)
+    background-color: rgba(38, 98, 148, .8)
 }
 
 #search-header h2 {
@@ -24,10 +24,10 @@ html, body {
     padding-left: 3%;
 }
 
-#searchbar {
+#searchbox {
     padding: 20px;
     display: block;
-    width: 100%;
+    max-width: 20%;
     margin: 1%
 }
 
