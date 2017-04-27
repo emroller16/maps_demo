@@ -47,7 +47,7 @@ body {
 }
 
 @media only screen and (min-width: 480px) {
-        #searchbox {        
+        #search-card {        
             max-width: 20%;
             float:left
         }
