@@ -14,12 +14,21 @@ html, body {
     top: 0px;
     z-index: 10;
     width: 100%;
+    background-color: rgba(38, 98, 148)
+}
+
+#search-header h2 {
+    display: inline;
+    float: left;
+    width: 65%;
+    padding-left: 3%;
 }
 
 #searchbar {
     padding: 20px;
     display: block;
     width: 100%;
+    margin: 1%
 }
 
   #description {
