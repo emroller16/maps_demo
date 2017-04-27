@@ -36,7 +36,14 @@ body {
     padding: 20px;
     display: block;
     max-width: 20%;
-    margin: 1%
+    margin: 1%;
+    color:#ffffff;
+}
+
+#searchbox input {
+        border:none!important;
+        font-family:Lato, sans-serif;
+        font-size:1.2em;
 }
 
   #description {
