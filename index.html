@@ -35,6 +35,7 @@
                       center: {lat: 43.6615, lng: -70.2553},
                       zoom: 15
                 });
+          console.log('init map ' + map);
             
        function initAutocomplete() {
         var map = new google.maps.Map(document.getElementById('map'), {
@@ -42,6 +43,8 @@
           zoom: 13,
           mapTypeId: 'roadmap'
         });
+         
+         console.log('init AutoComplete ' + map);
 
   var infowindow = new google.maps.InfoWindow();
   var service = new google.maps.places.PlacesService(map);
