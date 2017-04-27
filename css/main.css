@@ -25,19 +25,32 @@ body {
 }
 
 #search-header h2 {
-    display: inline;
-    float: left;
-    width: 65%;
+    width: 100%;
     padding-left: 3%;
     color:#ffffff;
 }
 
+@media only screen and (min-width: 480px) {
+        #search-header h2 {
+                display: inline;
+                float: left;
+                width: 65%;
+        }
+}
+        
+        
 #searchbox {
     padding: 20px;
     display: block;
-    max-width: 20%;
+    width:100%;
     margin: 1%;
     color:#ffffff;
+}
+
+@media only screen and (min-width: 480px) {
+        #searchbox {        
+            max-width: 20%;
+        }
 }
 
 #searchbox input {
