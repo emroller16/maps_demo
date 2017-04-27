@@ -28,7 +28,7 @@
       #map #infowindow-content {
         display: inline;
       }
-      .pac-card {
+      .search-card {
         margin: 10px 10px 0 0;
         border-radius: 2px 0 0 2px;
         box-sizing: border-box;
@@ -38,20 +38,11 @@
         background-color: #fff;
         font-family: Roboto;
       }
-      #pac-container {
+      #search-container {
         padding-bottom: 12px;
         margin-right: 12px;
       }
-      .pac-controls {
-        display: inline-block;
-        padding: 5px 11px;
-      }
-      .pac-controls label {
-        font-family: Roboto;
-        font-size: 13px;
-        font-weight: 300;
-      }
-      #pac-input {
+      #search-input {
         background-color: #fff;
         font-family: Roboto;
         font-size: 15px;
@@ -61,7 +52,6 @@
         text-overflow: ellipsis;
         width: 400px;
       }
-      #pac-input:focus {
         border-color: #4d90fe;
       }
       #title {
@@ -76,28 +66,9 @@
   <body>
 	
 	<h2>Where do you want to eat?</h2>
-    <div class="pac-card" id="pac-card">
-      <div>
-        <div id="type-selector" class="pac-controls">
-          <input type="radio" name="type" id="changetype-all" checked="checked">
-          <label for="changetype-all">All</label>
-
-          <input type="radio" name="type" id="changetype-establishment">
-          <label for="changetype-establishment">Establishments</label>
-
-          <input type="radio" name="type" id="changetype-address">
-          <label for="changetype-address">Addresses</label>
-
-          <input type="radio" name="type" id="changetype-geocode">
-          <label for="changetype-geocode">Geocodes</label>
-        </div>
-        <div id="strict-bounds-selector" class="pac-controls">
-          <input type="checkbox" id="use-strict-bounds" value="">
-          <label for="use-strict-bounds">Strict Bounds</label>
-        </div>
-      </div>
-      <div id="pac-container">
-        <input id="pac-input" type="text"
+    <div class="search-card" id="search-card">
+      <div id="search-container">
+        <input id="search-input" type="text"
             placeholder="e.g. Tacqueria">
       </div>
     </div>
@@ -111,12 +82,11 @@
     <script>
     function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
-			center: {lat: -33.8688, lng: 151.2195},
+			center: {lat: 43.6615, lng: -70.2553},
 			zoom: 13
         });
-        var card = document.getElementById('pac-card');
-        var input = document.getElementById('pac-input');
-        var types = document.getElementById('type-selector');
+        var card = document.getElementById('search-card');
+        var input = document.getElementById('search-input');
         var strictBounds = document.getElementById('strict-bounds-selector');
         map.controls[google.maps.ControlPosition.TOP_RIGHT].push(card);
         var autocomplete = new google.maps.places.Autocomplete(input);
@@ -131,15 +101,16 @@
 			map: map,
 			anchorPoint: new google.maps.Point(0, -29)
         });
+	//Hide markers that aren't being used
         autocomplete.addListener('place_changed', function() {
 			infowindow.close();
 			marker.setVisible(false);
 			var place = autocomplete.getPlace();
-			if (!place.geometry) {
+			//if (!place.geometry) {
 				// User entered the name of a Place that was not suggested and
 				// pressed the Enter key, or the Place Details request failed.
-            window.alert("No details available for input: '" + place.name + "'");
-            return;
+          //  window.alert("No details available for input: '" + place.name + "'");
+          //  return;
          }
          // If the place has a geometry, then present it on a map.
          if (place.geometry.viewport) {
@@ -163,16 +134,7 @@
         infowindowContent.children['place-address'].textContent = address;
         infowindow.open(map, marker);
     });
-    function setupClickListener(id, types) {
-        var radioButton = document.getElementById(id);
-        radioButton.addEventListener('click', function() {
-        autocomplete.setTypes(types);
-        });
-    }
-    setupClickListener('changetype-all', []);
-    setupClickListener('changetype-address', ['address']);
-    setupClickListener('changetype-establishment', ['establishment']);
-    setupClickListener('changetype-geocode', ['geocode']);
+
     document.getElementById('use-strict-bounds')
         .addEventListener('click', function() {
             console.log('Checkbox clicked! New state=' + this.checked);
