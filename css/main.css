@@ -45,6 +45,7 @@ body {
     width:100%;
     margin: 1%;
     background-color:#ffffff;
+    min-height:30px;
 }
 
 @media only screen and (min-width: 480px) {
