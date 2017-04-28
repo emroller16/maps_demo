@@ -77,7 +77,7 @@ body {
         border:none;
 }
 
-.search-button::before {
+#search-button::before {
     content: '';
     display: block;
     width: 20px;
