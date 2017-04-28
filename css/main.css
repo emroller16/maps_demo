@@ -46,6 +46,7 @@ body {
     margin: 1%;
     background-color:#ffffff;
     min-height:30px;
+    position:relative;
 }
 
 @media only screen and (min-width: 480px) {
@@ -71,6 +72,9 @@ body {
         display:block;
         padding:10px;
         border:none;
+        position:absolute:
+        top:0;
+        right:0;
 }
 
 .search-button::before {
