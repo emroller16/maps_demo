@@ -24,6 +24,7 @@ body {
     background-color: rgba(38, 98, 148, .8)
 }
 
+/* Make the header responsive on Mobile */
 #search-header h2 {
     width: 100%;
     padding-left: 3%;
@@ -60,8 +61,30 @@ body {
         padding:1%;
 }
 
+#search-container {
+        position:absolute;
+        right:0px
+        top:0;
+}
+
+#search-button {
+        display:block
+        padding:10px;
+        border:none;
+}
+
+.search-button::before {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 20px;
+    background: url(//maps.gstatic.com/tactile/omnibox/quantum_search_button-20150825-1x.png);
+    background-size: 72px 24px;
+}
+/*Style the Info Windows */
+
 #description {
-        font-family: Roboto;
+        font-family: Lato, sans-serif;
         font-size: 15px;
         font-weight: 300;
       }
@@ -70,6 +93,7 @@ body {
         font-weight: bold;
       }
 
+/*Hide the window initially */
 #infowindow-content {
         display: none;
       }
