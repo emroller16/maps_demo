@@ -80,7 +80,7 @@ body {
 #search-button::before {
     content: '';
     display: block;
-    background: url(/img/search.png);
+    background: url(../img/search.png);
     background-size: 72px 24px;
 }
 /*Style the Info Windows */
