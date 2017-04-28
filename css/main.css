@@ -82,7 +82,7 @@ body {
     display: block;
     width: 20px;
     height: 20px;
-    background: url(maps.gstatic.com/tactile/omnibox/quantum_search_button-20150825-1x.png);
+    background: url(img/search.png);
     background-size: 72px 24px;
 }
 /*Style the Info Windows */
