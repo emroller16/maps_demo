@@ -40,17 +40,25 @@
         });
 
         var input = document.getElementById('search-input');
-	    
+	
 	//Set the map's position to the #map div
         var autocomplete = new google.maps.places.Autocomplete(input);
-	    
+	
+	//Enable the search button
+	document.getElementById('search-button').onclick = function () {
+    		var input = document.getElementById('search-button');
+
+    		google.maps.event.trigger(input, 'focus')
+   		google.maps.event.trigger(input, 'keydown', { keyCode: 13 });
+		};
+	       
         // Bind the map's bounds (viewport) property to the autocomplete object,
         // so that the autocomplete requests use the current map bounds for the
         // bounds option in the request.
         autocomplete.bindTo('bounds', map);
         var infowindow = new google.maps.InfoWindow();
         var infowindowContent = document.getElementById('infowindow-content');
-        infowindow.setContent(infowindowContent);
+        infowindow.setContent(infowindowContent
 	    
 	//Set a new marker for the selected results
         var marker = new google.maps.Marker({
@@ -68,6 +76,7 @@
             window.alert("No details available for input: '" + place.name + "'");
             return;
          }
+		
          // If the place has a geometry, then present it on a map.
          if (place.geometry.viewport) {
 			map.fitBounds(place.geometry.viewport);
