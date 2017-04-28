@@ -121,13 +121,13 @@ function onPlaceChanged() {
        //  }
 		
          // If the place has a geometry, then present it on a map.
-         if (place.geometry.viewport) {
+        /* if (place.geometry.viewport) {
 			map.fitBounds(place.geometry.viewport);
         } else {
 			map.setCenter(place.geometry.location);
 			map.setZoom(17);  
 		}
-		
+		*/
 	// Place the marker at the location searched
         marker.setPosition(place.geometry.location);
         marker.setVisible(true);
