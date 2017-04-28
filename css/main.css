@@ -62,10 +62,7 @@ body {
         float:left;
 }
 
-#search-container {
-        position:absolute;
-        right:0px;
-        top:0;
+#search-button-container {
         float:left
 }
 
